@@ -1,1 +1,0 @@
-# coder-take-home-test
