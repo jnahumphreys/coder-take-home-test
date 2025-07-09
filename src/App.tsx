@@ -1,5 +1,5 @@
 function App() {
-  return null
+  return null;
 }
 
-export { App } 
+export { App };
