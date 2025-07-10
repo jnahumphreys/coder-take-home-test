@@ -1,9 +1,10 @@
 {
   "name": "coder-take-home-test",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.6.0",
   "type": "module",
   "scripts": {
+    "bump-version": "sh -c 'npm version ${1:-minor} --git-tag-version=false' --",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
