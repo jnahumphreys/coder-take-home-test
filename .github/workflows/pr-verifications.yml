@@ -1,0 +1,59 @@
+name: PR verifications
+
+on:
+  pull_request:
+    branches: ["development", "main"]
+
+jobs:
+  check_version_bump:
+    name: Check for npm version bump
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
+
+      - name: Check for npm version version bump in package.json
+        uses: bachmacintosh/need-npm-package-version-bump@v1.0.25
+
+  check_linting:
+    name: Check for linting errors
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and install dependencies
+        uses: ./.github/actions/setup-action
+
+      - name: Run linting check with ESLint
+        run: npm run lint
+
+  check_formatting:
+    name: Check for formatting errors
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and install dependencies
+        uses: ./.github/actions/setup-action
+
+      - name: Run formatting check with Prettier
+        run: npm run check-formatting
+
+  build_app_and_test:
+    name: Build production app and end to end test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and install dependencies
+        uses: ./.github/actions/setup-action
+
+      - name: Build app
+        run: npm run build
