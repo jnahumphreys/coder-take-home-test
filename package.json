@@ -1,7 +1,7 @@
 {
   "name": "coder-take-home-test",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "scripts": {
     "bump-version": "sh -c 'npm version ${1:-minor} --git-tag-version=false' --",
