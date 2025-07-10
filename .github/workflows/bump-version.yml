@@ -1,7 +1,7 @@
 name: Bump version
 on:
   push:
-    branches: ["development", "main"]
+    branches: ["development"]
 jobs:
   build:
     runs-on: ubuntu-latest
